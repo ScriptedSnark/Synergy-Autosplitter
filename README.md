@@ -27,3 +27,11 @@ Finalization required.
 5) Дважды кликните по новому элементу Scriptable Autosplitter в списке элементов вашего Layout.
 6) Укажите путь к .asl файлу
 
+
+## Known bugs / Известные баги
+
+- Autosplitter can work anyway (changelevel "map"; save loads)
+
+------------------------------------------------------------------------------
+
+- Автосплиттер при любой загрузке будет работать (при changelevel "map", загрузках и т.д)
