@@ -33,8 +33,8 @@ init
     
     var TheScanner = new SignatureScanner(game, process.BaseAddress, process.ModuleMemorySize);
     
-    var sig_serverState = new SigScanTarget(22, "83 F8 01 0F 8C ?? ?? 00 00 3D 00 02 00 00 0F 8F ?? ?? 00 00 83 3D ?? ?? ?? ?? 02 7D"); // https://github.com/fatalis/SourceSplit/blob/master/GameMemory.cs#L68-L74
-    var sig_mapName = new SigScanTarget(13, "D9 ?? 2C D9 C9 DF F1 DD D8 76 ?? 80 ?? ?? ?? ?? ?? 00");
+    var sig_serverState = new SigScanTarget(22, "83 F8 01 0F 8C ?? ?? 00 00 3D 00 02 00 00 0F 8F ?? ?? 00 00 83 3D ?? ?? ?? ?? 02 7D"); // https://github.com/fatalis/SourceSplit/blob/1056cc59c662e3cb7d77e64aef8bbc26c1e90061/GameMemory.cs#L63-L74
+    var sig_mapName = new SigScanTarget(13, "D9 ?? 2C D9 C9 DF F1 DD D8 76 ?? 80 ?? ?? ?? ?? ?? 00"); // https://github.com/fatalis/SourceSplit/blob/1056cc59c662e3cb7d77e64aef8bbc26c1e90061/GameMemory.cs#L193-L201
 
     sig_serverState.OnFound = (proc, scanner, ptr) => !proc.ReadPointer(ptr, out ptr) ? IntPtr.Zero : ptr;
     sig_mapName.OnFound = (proc, scanner, ptr) => !proc.ReadPointer(ptr, out ptr) ? IntPtr.Zero : ptr;
@@ -69,6 +69,6 @@ start
 
 split
 {
-    if (vars.serverState.Current == 1 && vars.serverState.Old == 2 && !vars.startmaps.Contains(vars.mapName.Current)) // https://github.com/fatalis/SourceSplit/blob/master/GameMemory.cs#L891-L892
+    if (vars.serverState.Current == 1 && vars.serverState.Old == 2 && !vars.startmaps.Contains(vars.mapName.Current)) // https://github.com/fatalis/SourceSplit/blob/1056cc59c662e3cb7d77e64aef8bbc26c1e90061/GameMemory.cs#L891-L892
         return true;
 }
