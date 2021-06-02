@@ -140,8 +140,8 @@ init
     sig_hostStateTarget.OnFound = (proc, scanner, ptr) => proc.ReadPointer(ptr, out ptr) ? ptr - 4 : IntPtr.Zero;
     sig_signonStateTarget.OnFound = (proc, scanner, ptr) => proc.ReadPointer(ptr, out ptr) ? ptr : IntPtr.Zero;
     sig_globalEntityListTarget.OnFound = (proc, scanner, ptr) => proc.ReadPointer(ptr, out ptr) ? ptr + 4 : IntPtr.Zero;
-    sig_serverState.OnFound = (proc, scanner, ptr) => !proc.ReadPointer(ptr, out ptr) ? IntPtr.Zero : ptr;
-    sig_mapName.OnFound = (proc, scanner, ptr) => !proc.ReadPointer(ptr, out ptr) ? IntPtr.Zero : ptr;
+    sig_serverState.OnFound = (proc, scanner, ptr) => proc.ReadPointer(ptr, out ptr) ? ptr : IntPtr.Zero;
+    sig_mapName.OnFound = (proc, scanner, ptr) => proc.ReadPointer(ptr, out ptr) ? ptr : IntPtr.Zero;
 
     IntPtr ptr_serverState = engineScanner.Scan(sig_serverState);
     vars.ReportPointer(ptr_serverState, "server state");
