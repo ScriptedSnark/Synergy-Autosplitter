@@ -1,5 +1,7 @@
 # Synergy Autosplitter [ENG / RUS] 
 
+### This project is deprecated in favor of [SourceSplit](https://github.com/thisis2838/SourceSplit). It is recommeneded that you use it instead.
+
 ## Installation | Установка
 
 **First way (recommended) / Метод #1 (оптимальный)**
